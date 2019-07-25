@@ -14,11 +14,25 @@ class MyHomePageState extends State<MyHomePage> {
 
   void calculateBmi() {
     setState(() {
-      _weight = num.parse(weightController.text);
-      _height = num.parse(heightController.text);
+      _weight = _parseInvariant(weightController.text);
+      _height = _parseInvariant(heightController.text);
 
       _bmi = _weight / (pow(_height, 2));
     });
+  }
+
+  num _parseInvariant(String value) {
+    if (value.contains(',')) {
+      value = value.replaceAll(new RegExp(','), '.');
+    }
+
+    var parsedValue = num.tryParse(value);
+
+    if (parsedValue == null) {
+      return 0;
+    }
+
+    return parsedValue;
   }
 
   @override
