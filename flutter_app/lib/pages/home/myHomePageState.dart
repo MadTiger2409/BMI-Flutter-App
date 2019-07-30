@@ -48,19 +48,48 @@ class MyHomePageState extends State<MyHomePage> {
             TextField(
               controller: weightController,
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 18.0,
               ),
-              decoration: InputDecoration(labelText: 'Weight in kilograms'),
+              decoration: InputDecoration(
+                labelText: 'Weight in kilograms',
+                hintText: 'e.g.: 80',
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 2.0),
+                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                ),
+              ),
               autocorrect: false,
               keyboardType: TextInputType.number,
             ),
-            TextField(
-              controller: heightController,
-              style: TextStyle(
-                fontSize: 20.0,
+            Container(
+              margin: EdgeInsets.only(top: 10.0),
+              child: TextField(
+                controller: heightController,
+                style: TextStyle(
+                  fontSize: 18.0,
+                ),
+                decoration: InputDecoration(
+                  labelText: 'Height in metters',
+                  hintText: 'e.g.: 1.68',
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Colors.orangeAccent, width: 2.0),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  ),
+                ),
+                keyboardType: TextInputType.number,
               ),
-              decoration: InputDecoration(labelText: 'Height in metters'),
-              keyboardType: TextInputType.number,
             ),
             Container(
               margin: EdgeInsets.only(top: 10.0),
