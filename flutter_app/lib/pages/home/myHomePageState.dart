@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_app/tools/bmiCalculator.dart';
 
 import 'myHomePage.dart';
 
@@ -17,7 +16,7 @@ class MyHomePageState extends State<MyHomePage> {
       _weight = _parseInvariant(weightController.text);
       _height = _parseInvariant(heightController.text);
 
-      _bmi = _weight / (pow(_height, 2));
+      _bmi = BmiCalculator.calculate(_height, _weight);
     });
   }
 
