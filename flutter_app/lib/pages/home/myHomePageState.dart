@@ -6,17 +6,12 @@ import 'myHomePage.dart';
 class MyHomePageState extends State<MyHomePage> {
   final weightController = TextEditingController();
   final heightController = TextEditingController();
-
-  num _weight = 0.0;
-  num _height = 0.0;
   num _bmi = 0.0;
 
   void calculateBmi() {
     setState(() {
-      _weight = _parseInvariant(weightController.text);
-      _height = _parseInvariant(heightController.text);
-
-      _bmi = BmiCalculator.calculate(_height, _weight);
+      _bmi = BmiCalculator.calculate(_parseInvariant(heightController.text),
+          _parseInvariant(weightController.text));
     });
   }
 
@@ -45,30 +40,32 @@ class MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextField(
-              controller: weightController,
-              style: TextStyle(
-                fontSize: 18.0,
-              ),
-              decoration: InputDecoration(
-                labelText: 'Weight in kilograms',
-                hintText: 'e.g.: 80',
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            Container(
+              child: TextField(
+                controller: weightController,
+                style: TextStyle(
+                  fontSize: 18.0,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.orangeAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                decoration: InputDecoration(
+                  labelText: 'Weight in kilograms',
+                  hintText: 'e.g.: 80',
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Colors.orangeAccent, width: 2.0),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  ),
                 ),
+                autocorrect: false,
+                keyboardType: TextInputType.number,
               ),
-              autocorrect: false,
-              keyboardType: TextInputType.number,
             ),
             Container(
-              margin: EdgeInsets.only(top: 10.0),
+              margin: EdgeInsets.only(top: 20.0),
               child: TextField(
                 controller: heightController,
                 style: TextStyle(
@@ -94,7 +91,10 @@ class MyHomePageState extends State<MyHomePage> {
             Container(
               margin: EdgeInsets.only(top: 10.0),
               child: RaisedButton(
-                child: Text('Calculate'),
+                color: Colors.orange,
+                child: Text(
+                  'Calculate',
+                ),
                 onPressed: calculateBmi,
               ),
             ),
