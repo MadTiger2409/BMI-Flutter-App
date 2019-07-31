@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/home/heightInput.dart';
+import 'package:flutter_app/pages/home/weightInput.dart';
 import 'package:flutter_app/tools/bmiCalculator.dart';
+import 'package:flutter_app/tools/parser.dart';
 
 import 'myHomePage.dart';
 
 class MyHomePageState extends State<MyHomePage> {
-  final weightController = TextEditingController();
-  final heightController = TextEditingController();
+  TextEditingController heightController;
+  TextEditingController weightController;
   num _bmi = 0.0;
 
   void calculateBmi() {
     setState(() {
-      _bmi = BmiCalculator.calculate(_parseInvariant(heightController.text),
-          _parseInvariant(weightController.text));
+      _bmi = BmiCalculator.calculate(Parser.parseInvariant(heightController.text),
+          Parser.parseInvariant(weightController.text));
     });
   }
 
-  num _parseInvariant(String value) {
-    if (value.contains(',')) {
-      value = value.replaceAll(new RegExp(','), '.');
-    }
+  @override
+  void initState() {
+    super.initState();
 
-    var parsedValue = num.tryParse(value);
+    weightController = TextEditingController();
+    heightController = TextEditingController();
+  }
 
-    if (parsedValue == null) {
-      return 0;
-    }
+  @override
+  void dispose(){
+    weightController.dispose();
+    heightController.dispose();
 
-    return parsedValue;
+    super.dispose();
   }
 
   @override
@@ -40,52 +45,19 @@ class MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              child: TextField(
-                controller: weightController,
-                style: TextStyle(
-                  fontSize: 18.0,
-                ),
-                decoration: InputDecoration(
-                  labelText: 'Weight in kilograms',
-                  hintText: 'e.g.: 80',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Colors.orangeAccent, width: 2.0),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  ),
-                ),
-                autocorrect: false,
-                keyboardType: TextInputType.number,
+            WeightInput(
+              weightController: weightController
               ),
-            ),
+            HeightInput(
+              heightController: heightController
+              ),
             Container(
-              margin: EdgeInsets.only(top: 20.0),
-              child: TextField(
-                controller: heightController,
+              margin: EdgeInsets.only(top: 20.00),
+              child: Text(
+                'Your BMI is: ${_bmi.toStringAsFixed(2)}',
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 30.00,
                 ),
-                decoration: InputDecoration(
-                  labelText: 'Height in metters',
-                  hintText: 'e.g.: 1.68',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Colors.orangeAccent, width: 2.0),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  ),
-                ),
-                keyboardType: TextInputType.number,
               ),
             ),
             Container(
@@ -94,18 +66,20 @@ class MyHomePageState extends State<MyHomePage> {
                 color: Colors.orange,
                 child: Text(
                   'Calculate',
+                  style: TextStyle(
+                    fontSize: 22.00,
+                    ),
                 ),
                 onPressed: calculateBmi,
               ),
             ),
-            Text('Your BMI is: ${_bmi.toStringAsFixed(2)}')
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        tooltip: 'Settings',
-        child: Icon(Icons.settings),
+        tooltip: 'Info',
+        child: Icon(Icons.info_outline),
       ),
     );
   }
