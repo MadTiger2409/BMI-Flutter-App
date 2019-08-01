@@ -13,7 +13,8 @@ class MyHomePageState extends State<MyHomePage> {
 
   void calculateBmi() {
     setState(() {
-      _bmi = BmiCalculator.calculate(Parser.parseInvariant(heightController.text),
+      _bmi = BmiCalculator.calculate(
+          Parser.parseInvariant(heightController.text),
           Parser.parseInvariant(weightController.text));
     });
   }
@@ -27,7 +28,7 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     weightController.dispose();
     heightController.dispose();
 
@@ -45,12 +46,8 @@ class MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            WeightInput(
-              weightController: weightController
-              ),
-            HeightInput(
-              heightController: heightController
-              ),
+            WeightInput(weightController: weightController),
+            HeightInput(heightController: heightController),
             Container(
               margin: EdgeInsets.only(top: 20.00),
               child: Text(
@@ -68,7 +65,7 @@ class MyHomePageState extends State<MyHomePage> {
                   'Calculate',
                   style: TextStyle(
                     fontSize: 22.00,
-                    ),
+                  ),
                 ),
                 onPressed: calculateBmi,
               ),
