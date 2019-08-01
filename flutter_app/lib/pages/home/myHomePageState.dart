@@ -37,47 +37,57 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Container(
-        padding: EdgeInsets.all(50.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            WeightInput(weightController: weightController),
-            HeightInput(heightController: heightController),
-            Container(
-              margin: EdgeInsets.only(top: 20.00),
-              child: Text(
-                'Your BMI is: ${_bmi.toStringAsFixed(2)}',
-                style: TextStyle(
-                  fontSize: 30.00,
-                ),
+    return Stack(
+      children: <Widget>[
+        Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+          ),
+          body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/background.jpg'),
+                fit: BoxFit.contain,
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 10.0),
-              child: RaisedButton(
-                color: Colors.orange,
-                child: Text(
-                  'Calculate',
-                  style: TextStyle(
-                    fontSize: 22.00,
+            padding: EdgeInsets.all(50.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(bottom: 50.00, top: 20.00),
+                  child: Text(
+                    'Your BMI is: ${_bmi.toStringAsFixed(2)}',
+                    style: TextStyle(
+                      fontSize: 30.00,
+                    ),
                   ),
                 ),
-                onPressed: calculateBmi,
-              ),
+                WeightInput(weightController: weightController),
+                HeightInput(heightController: heightController),
+                Container(
+                  margin: EdgeInsets.only(top: 10.0),
+                  child: RaisedButton(
+                    color: Colors.lightGreen,
+                    child: Text(
+                      'Calculate',
+                      style: TextStyle(
+                        fontSize: 22.00,
+                      ),
+                    ),
+                    onPressed: calculateBmi,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            tooltip: 'Info',
+            child: Icon(Icons.info_outline),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Info',
-        child: Icon(Icons.info_outline),
-      ),
+      ],
     );
   }
 }

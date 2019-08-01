@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class WeightInput extends StatelessWidget {
   final TextEditingController weightController;
 
-  WeightInput({Key key, this.weightController}) :super(key: key);
+  WeightInput({Key key, this.weightController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,11 @@ class WeightInput extends StatelessWidget {
           labelText: 'Weight in kilograms',
           hintText: 'e.g.: 80',
           focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+            borderSide: BorderSide(color: Colors.green, width: 2.0),
             borderRadius: BorderRadius.all(Radius.circular(5.0)),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Colors.orangeAccent, width: 2.0),
+            borderSide: BorderSide(color: Colors.lightGreen, width: 2.0),
             borderRadius: BorderRadius.all(Radius.circular(5.0)),
           ),
         ),

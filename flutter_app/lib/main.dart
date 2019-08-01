@@ -11,17 +11,9 @@ class MyApp extends StatelessWidget {
       title: 'Fit App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.lightGreen,
       ),
-      home: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
-        child: MyHomePage(title: 'BMI Calculator'),
-      ),
+      home: MyHomePage(title: 'BMI Calculator'),
     );
   }
 }
