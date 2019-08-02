@@ -46,8 +46,8 @@ class MyHomePageState extends State<MyHomePage> {
           body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.jpg'),
-                fit: BoxFit.contain,
+                image: ExactAssetImage('assets/images/background.jpg'),
+                fit: BoxFit.cover,
               ),
             ),
             padding: EdgeInsets.all(50.0),
