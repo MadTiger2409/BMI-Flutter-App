@@ -82,12 +82,38 @@ class MyHomePageState extends State<MyHomePage> {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            onPressed: (){
+              _settingModalBottomSheet(context);
+              },
             tooltip: 'Info',
             child: Icon(Icons.info_outline),
           ),
         ),
       ],
+    );
+  }
+
+  void _settingModalBottomSheet(context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Container(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('< 16.0 – wygłodzenie'),
+              Text('16.0–16.99 – wychudzenie'),
+              Text('17.0–18.49 – niedowaga'),
+              Text('18.5–24.99 – wartość prawidłowa'),
+              Text('25.0–29.99 – nadwaga'),
+              Text('30.0–34.99 – I stopień otyłości'),
+              Text('35.0–39.99 – II stopień otyłości (otyłość kliniczna)'),
+              Text('≥ 40.0 – III stopień otyłości (otyłość skrajna)'),
+            ],
+          ),
+        );
+      }
     );
   }
 }
