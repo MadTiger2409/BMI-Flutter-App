@@ -98,18 +98,113 @@ class MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (BuildContext bc) {
         return Container(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          padding: EdgeInsets.all(30.00),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Text('< 16.0 – wygłodzenie'),
-              Text('16.0–16.99 – wychudzenie'),
-              Text('17.0–18.49 – niedowaga'),
-              Text('18.5–24.99 – wartość prawidłowa'),
-              Text('25.0–29.99 – nadwaga'),
-              Text('30.0–34.99 – I stopień otyłości'),
-              Text('35.0–39.99 – II stopień otyłości (otyłość kliniczna)'),
-              Text('≥ 40.0 – III stopień otyłości (otyłość skrajna)'),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '< 16.0:',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 85, 255, 1.00)
+                    ),
+                  ),
+                  Text(
+                    '16.00–16.99:',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 183, 255, 1.00)
+                    ),
+                  ),
+                  Text(
+                    '17.00–18.49:',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 224, 198, 1.00)
+                    ),
+                  ),
+                  Text(
+                    '18.50–24.99:',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 191, 6, 1.00)
+                    ),
+                  ),
+                  Text(
+                    '25.00–29.99:',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 213, 0, 1.00),
+                    ),
+                  ),
+                  Text(
+                    '30.00–34.99:',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 174, 0, 1.00)
+                    ),
+                  ),
+                  Text(
+                    '35.00–39.99:',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 132, 0, 1.00)
+                    ),
+                  ),
+                  Text('40.00-44.99: Obese Class III (Very severely obese)'),
+                  Text('45.00-49.99: Obese Class IV (Morbidly Obese)'),
+                  Text('50.00-59.99: Obese Class V (Super Obese)'),
+                  Text('≥ 60.00: Obese Class VI (Hyper Obese)'),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Very severely underweight',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 85, 255, 1.00)
+                    ),
+                  ),
+                  Text(
+                    'Severely underweight',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 183, 255, 1.00)
+                    ),
+                  ),
+                  Text(
+                    'Underweight',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 224, 198, 1.00)
+                    ),
+                  ),
+                  Text(
+                    'Normal',
+                    style: TextStyle(
+                      color: Color.fromRGBO(0, 191, 6, 1.00)
+                    ),
+                  ),
+                  Text(
+                    'Overweight',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 213, 0, 1.00),
+                    ),
+                  ),
+                  Text(
+                    'Obese Class I (Moderately obese)',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 174, 0, 1.00)
+                    ),
+                  ),
+                  Text(
+                    'Obese Class II (Severely obese)',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 132, 0, 1.00)
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         );
