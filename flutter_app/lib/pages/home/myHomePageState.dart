@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_app/models/result.dart';
 import 'package:flutter_app/pages/home/heightInput.dart';
 import 'package:flutter_app/pages/home/weightInput.dart';
@@ -23,6 +24,10 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
 
     weightController = TextEditingController();
     heightController = TextEditingController();
@@ -97,8 +102,22 @@ class MyHomePageState extends State<MyHomePage> {
   void _settingModalBottomSheet(context) {
     showModalBottomSheet(
         context: context,
+        backgroundColor: Colors.transparent,
         builder: (BuildContext bc) {
           return Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              image: DecorationImage(
+                image: ExactAssetImage('assets/images/result-background.jpg'),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Color.fromRGBO(255, 255, 255, 0.18), BlendMode.modulate),
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.0),
+                topRight: Radius.circular(16.0),
+              ),
+            ),
             padding: EdgeInsets.all(30.00),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -108,7 +127,7 @@ class MyHomePageState extends State<MyHomePage> {
                 Center(
                   child: Table(
                     columnWidths: {
-                      1: FlexColumnWidth(2),
+                      1: FlexColumnWidth(2.6),
                     },
                     children: _createResultsRows(_createResultsList()),
                   ),
@@ -131,7 +150,7 @@ class MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'Result',
                 style: TextStyle(
-                  fontSize: 22.00,
+                  fontSize: 30.00,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -143,7 +162,7 @@ class MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'Description',
                 style: TextStyle(
-                  fontSize: 22.00,
+                  fontSize: 30.00,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -164,6 +183,7 @@ class MyHomePageState extends State<MyHomePage> {
                   f.bmiLevel,
                   style: TextStyle(
                     color: f.levelTextColor,
+                    fontSize: 15.2,
                   ),
                 ),
               ),
@@ -175,6 +195,7 @@ class MyHomePageState extends State<MyHomePage> {
                   f.bmiLevelDescription,
                   style: TextStyle(
                     color: f.levelTextColor,
+                    fontSize: 15.2,
                   ),
                 ),
               ),
@@ -199,7 +220,7 @@ class MyHomePageState extends State<MyHomePage> {
     results
         .add(Result('18.50–24.99:', 'Normal', Color.fromRGBO(0, 191, 6, 1.00)));
     results.add(Result(
-        '25.00–29.99:', 'Overweight', Color.fromRGBO(255, 213, 0, 1.00)));
+        '25.00–29.99:', 'Overweight', Color.fromRGBO(217, 181, 0, 1.00)));
     results.add(Result('30.00–34.99:', 'Obese Class I (Moderately obese)',
         Color.fromRGBO(255, 174, 0, 1.00)));
     results.add(Result('35.00–39.99:', 'Obese Class II (Severely obese)',
@@ -207,7 +228,7 @@ class MyHomePageState extends State<MyHomePage> {
     results.add(Result('40.00-44.99:', 'Obese Class III (Very severely obese)',
         Color.fromRGBO(255, 106, 0, 1.0)));
     results.add(Result('45.00-49.99:', 'Obese Class IV (Morbidly Obese)',
-        Color.fromRGBO(0, 85, 255, 1.00)));
+        Color.fromRGBO(255, 81, 0, 1.00)));
     results.add(Result('50.00-59.99:', 'Obese Class V (Super Obese)',
         Color.fromRGBO(255, 10, 0, 1.0)));
     results.add(Result('≥ 60.00:', 'Obese Class VI (Hyper Obese)',
