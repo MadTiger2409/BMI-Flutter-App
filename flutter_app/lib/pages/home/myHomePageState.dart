@@ -108,7 +108,7 @@ class MyHomePageState extends State<MyHomePage> {
             decoration: BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
-                image: ExactAssetImage('assets/images/result-background.jpg'),
+                image: ExactAssetImage('assets/images/result_background.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                     Color.fromRGBO(255, 255, 255, 0.18), BlendMode.modulate),
