@@ -46,15 +46,15 @@ class MyHomePageState extends State<MyHomePage> {
     return Stack(
       children: <Widget>[
         Scaffold(
+          resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             title: Text(widget.title),
           ),
           body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: ExactAssetImage('assets/images/background.jpg'),
-                fit: BoxFit.cover,
-              ),
+                  image: ExactAssetImage('assets/images/background.jpg'),
+                  fit: BoxFit.cover),
             ),
             padding: EdgeInsets.all(50.0),
             child: Column(
