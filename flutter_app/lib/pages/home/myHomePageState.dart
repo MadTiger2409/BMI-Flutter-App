@@ -62,11 +62,12 @@ class MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(bottom: 50.00, top: 20.00),
-                  child: Text(
+                  margin: EdgeInsets.only(bottom: 40.00),
+                  child: AutoSizeText(
                     'Your BMI is: ${_bmi.toStringAsFixed(2)}',
+                    maxLines: 1,
                     style: TextStyle(
-                      fontSize: 30.00,
+                      fontSize: 35.00,
                     ),
                   ),
                 ),
