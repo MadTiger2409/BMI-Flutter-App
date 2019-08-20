@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/models/result.dart';
@@ -147,10 +148,11 @@ class MyHomePageState extends State<MyHomePage> {
           TableCell(
             child: Align(
               alignment: Alignment.center,
-              child: Text(
+              child: AutoSizeText(
                 'Result',
+                maxLines: 1,
                 style: TextStyle(
-                  fontSize: 30.00,
+                  fontSize: 25.00,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -159,10 +161,11 @@ class MyHomePageState extends State<MyHomePage> {
           TableCell(
             child: Align(
               alignment: Alignment.center,
-              child: Text(
+              child: AutoSizeText(
                 'Description',
+                maxLines: 1,
                 style: TextStyle(
-                  fontSize: 30.00,
+                  fontSize: 25.00,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -179,11 +182,12 @@ class MyHomePageState extends State<MyHomePage> {
             TableCell(
               child: Align(
                 alignment: Alignment.center,
-                child: Text(
+                child: AutoSizeText(
                   f.bmiLevel,
+                  maxLines: 1,
                   style: TextStyle(
                     color: f.levelTextColor,
-                    fontSize: 15.2,
+                    fontSize: 14.5,
                   ),
                 ),
               ),
@@ -191,11 +195,12 @@ class MyHomePageState extends State<MyHomePage> {
             TableCell(
               child: Align(
                 alignment: Alignment.center,
-                child: Text(
+                child: AutoSizeText(
                   f.bmiLevelDescription,
+                  maxLines: 1,
                   style: TextStyle(
                     color: f.levelTextColor,
-                    fontSize: 15.2,
+                    fontSize: 14.5,
                   ),
                 ),
               ),
