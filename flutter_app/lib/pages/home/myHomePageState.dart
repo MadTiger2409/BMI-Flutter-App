@@ -49,7 +49,12 @@ class MyHomePageState extends State<MyHomePage> {
         Scaffold(
           resizeToAvoidBottomPadding: false,
           appBar: AppBar(
-            title: Text(widget.title),
+            title: Text(
+              widget.title,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           body: Container(
             decoration: BoxDecoration(
@@ -95,7 +100,10 @@ class MyHomePageState extends State<MyHomePage> {
               _settingModalBottomSheet(context);
             },
             tooltip: 'Info',
-            child: Icon(Icons.info_outline),
+            child: Icon(
+              Icons.info_outline,
+              color: Colors.white,
+            ),
           ),
         ),
       ],
