@@ -81,6 +81,7 @@ class MyHomePageState extends State<MyHomePage> {
                       'Calculate',
                       style: TextStyle(
                         fontSize: 22.00,
+                        color: Colors.white,
                       ),
                     ),
                     onPressed: calculateBmi,
