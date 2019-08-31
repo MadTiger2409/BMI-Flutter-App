@@ -28,6 +28,7 @@ You can download app by going to the [current release](https://github.com/MadTig
 ## Quick Guide
 1. Launch app.
 2. You should see app main view. It consists of BMI result text (A), weight inut (B) and height inut (C), "calculate" button (D) and "Info" floating button (E).
+![Screen 1](https://github.com/MadTiger2409/BMI-Flutter-App/blob/master/BLOB/Screen1.png | width=48)
 3. Provide data to the inputs as described in this inputs.
 4. Tap "Calulate" button. After that you should see yor BMI at the top of the view.
 5. Tap "Info" floating button to see table with BMI ranges and descriptions.
