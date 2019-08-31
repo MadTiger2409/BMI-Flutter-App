@@ -25,5 +25,9 @@ It's using CC images from [unsplash.com](https://unsplash.com/).
 ## Download
 You can download app by going to the [current release](https://github.com/MadTiger2409/BMI-Flutter-App/releases/tag/v1.0.2) and choose proper file from the `Assets` section.
 
-## Overview
-Soon.....
+## Quick Guide
+1. Launch app.
+2. You should see app main view. It consists of BMI result text (A), weight inut (B) and height inut (C), "calculate" button (D) and "Info" floating button (E).
+3. Provide data to the inputs as described in this inputs.
+4. Tap "Calulate" button. After that you should see yor BMI at the top of the view.
+5. Tap "Info" floating button to see table with BMI ranges and descriptions.
