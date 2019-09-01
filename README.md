@@ -26,6 +26,7 @@ It's using CC images from [unsplash.com](https://unsplash.com/).
 You can download app by going to the [current release](https://github.com/MadTiger2409/BMI-Flutter-App/releases/tag/v1.0.2) and choose proper file from the `Assets` section.
 
 ## Quick Guide
+### Step by step instruction
 1. Launch app.
 2. You should see app main view. It consists of BMI result text (A), weight inut (B) and height inut (C), "calculate" button (D) and "Info" floating button (E).
 
@@ -48,3 +49,8 @@ You can download app by going to the [current release](https://github.com/MadTig
 5. Tap "Info" floating button to see table with BMI ranges and descriptions.
 
 ![Screen 4](https://github.com/MadTiger2409/BMI-Flutter-App/blob/master/BLOB/GuideScreen4.png)
+
+### Video instruction
+This is a video/gif instruction on how to use BMI Calc.
+
+![Gif instruction](https://github.com/MadTiger2409/BMI-Flutter-App/blob/master/BLOB/GuideGif.gif)
