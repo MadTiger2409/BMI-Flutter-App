@@ -18,7 +18,7 @@ It's using CC images from [unsplash.com](https://unsplash.com/).
   </tr>
   <tr>
     <td> iOS </td>
-    <td> ??? </td>
+    <td> --- </td>
   </tr>
 </table>
 
